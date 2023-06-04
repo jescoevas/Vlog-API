@@ -24,14 +24,18 @@ public class User implements Serializable{
 	private LocalDate birthDate;
 	private String city;
 	private Boolean admin;
+	private String username;
+	private String password;
 	
 	public User() {}
 	
-	public User(String nickname, LocalDate birthDate, String city, Boolean admin) {
+	public User(String nickname, LocalDate birthDate, String city, Boolean admin, String username, String password) {
 		this.nickname = nickname;
 		this.birthDate = birthDate;
 		this.city = city;
 		this.admin = admin;
+		this.username = username;
+		this.password = password;
 	}
 	
 	public Integer getId() {
@@ -63,6 +67,18 @@ public class User implements Serializable{
 	}
 	public void setAdmin(Boolean admin) {
 		this.admin = admin;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	

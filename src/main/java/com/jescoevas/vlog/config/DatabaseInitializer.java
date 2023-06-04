@@ -1,11 +1,10 @@
 package com.jescoevas.vlog.config;
 
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.jescoevas.vlog.domain.Comment;
@@ -35,6 +34,9 @@ public class DatabaseInitializer implements CommandLineRunner{
 	
 	@Override
 	public void run(String... args) throws Exception {
+		
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		
 		Topic t1 = new Topic("Sports");
 		Topic t2 = new Topic("Politics");
 		Topic t3 = new Topic("Movies");
@@ -47,8 +49,8 @@ public class DatabaseInitializer implements CommandLineRunner{
 		t4 = topicService.create(t4);
 		t5 = topicService.create(t5);
 		
-		User u1 = new User("Estoico", LocalDate.of(1997, 3, 21), "Sevilla", true);
-		User u2 = new User("LaMartita", LocalDate.of(1997, 4, 30), "Sevilla", false);
+		User u1 = new User("Estoico", LocalDate.of(1997, 3, 21), "Sevilla", true, "jescoevas", passwordEncoder.encode("1234"));
+		User u2 = new User("LaMartita", LocalDate.of(1997, 4, 30), "Sevilla", false, "marta", passwordEncoder.encode("4321"));
 		
 		
 		u1 = userService.create(u1);

@@ -17,7 +17,7 @@ import com.jescoevas.vlog.domain.Topic;
 import com.jescoevas.vlog.services.TopicService;
 
 @RestController
-@RequestMapping("/topic")
+@RequestMapping("/api/vlog/topic")
 public class TopicController {
 
 	@Autowired

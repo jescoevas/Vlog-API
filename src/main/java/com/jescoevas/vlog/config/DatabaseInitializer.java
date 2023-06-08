@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.jescoevas.vlog.domain.Comment;
@@ -31,11 +31,11 @@ public class DatabaseInitializer implements CommandLineRunner{
 	private CommentService commentService;
 	@Autowired
 	private FavouriteService favouriteService;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
 	@Override
 	public void run(String... args) throws Exception {
-		
-		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		
 		Topic t1 = new Topic("Sports");
 		Topic t2 = new Topic("Politics");
